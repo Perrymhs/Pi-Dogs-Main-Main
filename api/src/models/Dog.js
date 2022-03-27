@@ -3,12 +3,12 @@ const { DataTypes } = require("sequelize");
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
-  sequelize.define("dog", {
+  sequelize.define('dog', {
     id: {
-      type: DataTypes.UUID,
+      type:DataTypes.INTEGER,/*  DataTypes.UUID, */// Crea una clave primaria que tiene letras y numeros aleatorios
       primaryKey: true,
       allowNull: false,
-      defaultValue: DataTypes.UUIDV4,//Si no pasa ID, genera uno nuevo automaticamente
+      /* defaultValue: DataTypes.UUIDV4, *///Si no pasa ID, genera uno nuevo automaticamente
     },
     name: {
       type: DataTypes.STRING,
@@ -32,10 +32,15 @@ module.exports = (sequelize) => {
     },
     life_span: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     image:{
       type: DataTypes.STRING,
-    }
+    },
+    createInDb:{
+      type:DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
+    },
   });
 };
