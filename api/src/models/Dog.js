@@ -5,10 +5,10 @@ module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('dog', {
     id: {
-      type:DataTypes.INTEGER,/*  DataTypes.UUID, */// Crea una clave primaria que tiene letras y numeros aleatorios
+      type:DataTypes.UUID,/*  DataTypes.UUID, */// Crea una clave primaria que tiene letras y numeros aleatorios
       primaryKey: true,
       allowNull: false,
-      /* defaultValue: DataTypes.UUIDV4, *///Si no pasa ID, genera uno nuevo automaticamente
+       defaultValue: DataTypes.UUIDV4, ///Si no pasa ID, genera uno nuevo automaticamente
     },
     name: {
       type: DataTypes.STRING,
@@ -36,11 +36,11 @@ module.exports = (sequelize) => {
     },
     image:{
       type: DataTypes.STRING,
-    },
+    },/*
     createInDb:{
       type:DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true,
-    },
+    }, */
   });
 };
