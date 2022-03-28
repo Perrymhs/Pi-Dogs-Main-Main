@@ -2,24 +2,6 @@ const {getAllInfo} = require ('../Controllers/controllers.js');
 const axios = require ('axios');
 
 
-
-//crea un controlador de temperament haciendo maps y separando los datos
-/* const getTemperament = async () => {
-    const temperament = await getAllInfo();
-    const temparray= []
-    const temperamentMap = {};
-    temperament.forEach(e => {
-      temperamentMap[e.name] = e.temperament; 
-         temparray.push(e.temperament);
-    });
-
-    temparray.map(e => {
-        return 
-        
-    })
-    return temparray;
-};
- */
 // crear un controlador de temperament haciendo un reduce
 const getTemperament = async () => {
     const temperament = await getAllInfo();
@@ -37,4 +19,5 @@ const getTemperament = async () => {
 };
 
 module.exports = {getTemperament}
+
 
