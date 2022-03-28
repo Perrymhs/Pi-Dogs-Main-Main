@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
     res.json(info);
 }); 
  
-router.get('/dog', async (req, res) => {
+router.get('/dogs', async (req, res) => {
     let {name} = req.query;
     const totalDogs = await getAllInfo();
     if (name) {
@@ -21,7 +21,7 @@ router.get('/dog', async (req, res) => {
     }
 });
 
-router.get('/dog/:id', async (req, res) => {
+router.get('/dogs/:id', async (req, res) => {
     let { id } = req.params;
     const totalDogs = await getAllInfo();
     let dogsId = await totalDogs.filter(e => e.id.toString() === id.toString());
