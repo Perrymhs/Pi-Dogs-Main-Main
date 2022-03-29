@@ -38,7 +38,6 @@ router.get('/dogs/:id', async (req, res) => {
 
 
 router.post('/dogs', async (req, res, next)  => {
-    console.log("No funca hermano se re pico")
     try {
         const { name, heightMax, heightMin,weightMax ,weightMin, life_span, image } = req.body;
         const newDog = await Dog.create({
