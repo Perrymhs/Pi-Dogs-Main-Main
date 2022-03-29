@@ -39,7 +39,7 @@ router.get('/dogs/:id', async (req, res) => {
 
 router.post('/dogs', async (req, res, next)  => {
     try {
-        const { name, heightMax, heightMin,weightMax ,weightMin, life_span, image } = req.body;
+        const { name, heightMax, heightMin,weightMax ,weightMin, life_span, image, temperament } = req.body;
         const newDog = await Dog.create({
             name,
             heightMax,
@@ -47,7 +47,8 @@ router.post('/dogs', async (req, res, next)  => {
             weightMax,
             weightMin,
             life_span,
-            image
+            image,
+            temperament,
 
         });
         res.status(201).send(newDog);

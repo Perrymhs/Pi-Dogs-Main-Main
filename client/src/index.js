@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';// es un componente que nos permite conectar el store con el componente
+import { store} from './store';
 
+
+//Siempre envolver el index con el provider porque si no redux no funciona
 ReactDOM.render(
+  <Provider store={store}>
   <React.StrictMode>
     <App />
   </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
