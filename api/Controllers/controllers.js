@@ -15,7 +15,7 @@ const saveApi = await apiUrl.data.map((dog)=>{
     const alturaMin = parseInt(altura[0]);
     const alturaMax = parseInt(altura[1]);
     return {
-        id: dog.id,
+        id: `${dog.id}`,
         name: dog.name,
         heightMax: alturaMax ? alturaMax : '',
         heightMin: alturaMin ? alturaMin : '',

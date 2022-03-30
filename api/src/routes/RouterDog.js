@@ -37,25 +37,40 @@ router.get('/dogs/:id', async (req, res) => {
 });
 
 
-router.post('/dogs', async (req, res, next)  => {
-    try {
-        const { name, heightMax, heightMin,weightMax ,weightMin, life_span, image, temperament } = req.body;
-        const newDog = await Dog.create({
-            name,
-            heightMax,
-            heightMin,
-            weightMax,
-            weightMin,
-            life_span,
-            image,
-            temperament,
-
+ router.post('/dog', async (req, res, next)  => {
+    const {
+        name,
+        heightMax,
+        heightMin,
+        weightMax,
+        weightMin,
+        temperament,
+        life_span,
+        image,
+      } = req.body;
+      try {
+        let NewDog = await Dog.create({
+          name,
+          heightMax,
+          heightMin,
+          weightMax,
+          weightMin,
+          life_span,
+          image,
         });
-        res.status(201).send(newDog);
-    } catch (error) {
-        next(error);
-    }
-}) 
+        console.log(temperament);
+        let temperamentNewDog = await Temperament.findAll({
+          where: { name: temperament },
+        });
+        NewDog.addTemperament(temperamentNewDog);
+        res.send("Tu nueva raza perruna ha sido agregada");
+      } catch (error) {
+        res.send(error);
+      }
+})  
+
+
+
 
 
 
