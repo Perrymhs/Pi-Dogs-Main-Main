@@ -1,19 +1,4 @@
 import axios from 'axios';
-//exporta la funcion getDogs con promesas
-/* export const getDogs = () => {
-    return (dispatch) => {
-        axios.get("http:localhost:3001/dogs")
-            .then(response => {
-                dispatch({
-                    type: 'GET_DOGS',
-                    payload: response.data.message
-                })
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
-} */
 
 export function getDogs(){
     return async function(dispatch){
@@ -29,3 +14,20 @@ export function getDogs(){
             
     }
 }
+
+
+//exporta la funcion getDogs con promesas
+/* export const getDogs = () => {
+    return (dispatch) => {
+        axios.get("http:localhost:3001/dogs")
+            .then(response => {
+                dispatch({
+                    type: 'GET_DOGS',
+                    payload: response.data.message
+                })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+} */
