@@ -17,14 +17,14 @@ function rootReducer (state = initialState, action){
         
         
         case "FILTER_BY_TEMPERAMENT":
-        console.log(state.dogs[1].temperament)    
+        
         const allDogsTemp = state.allDogs.filter(e => {if(e.temperament && e.temperament.includes(action.payload))return e})
             return {
                 ...state,
                 dogs: allDogsTemp
             }
         case "FILTER_BY_WEIGHT":
-        console.log(state.allDogs[1].weightMin)
+        
         let allDogsWeight;
         if (action.payload === "weightMax"){
             let dogsMax = state.allDogs.sort((a,b)=> {
@@ -46,9 +46,24 @@ function rootReducer (state = initialState, action){
             ...state,
         dogs: allDogsWeight
     }
+        case "FILTER_CREATED":
+        console.log(state.allDogs[1].id)
+        let filteredDogs;
+        if (action.payload === "createdAt"){
+            let filterByCreated = state.allDogs.filter(e => e.createdAt)
+            filteredDogs = filterByCreated;
+        }
+        if (action.payload === "Api") {
+            let aux = state.allDogs.filter((e) => e.id.length < 4);
+            filteredDogs = aux;
+          }
+        console.log(filteredDogs)
+        return {...state,
+            dogs: filteredDogs}
+
+        default:
+             return state
         
-            default:
-                return state;
     }
 }
 

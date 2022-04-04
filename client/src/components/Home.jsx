@@ -1,7 +1,7 @@
 import React from "react";
 import {useState, useEffect} from "react";
 import {useDispatch, useSelector}  from "react-redux";
-import {getDogs, filterDogsbyName,filterDogsbyTemperament, filterDogsbyWeight} from "../actions";
+import {getDogs, filterDogsbyName,filterDogsbyTemperament, filterDogsbyWeight, filterCreatedOrApi} from "../actions";
 import Card from "./Card";
 import {Link} from 'react-router-dom';
 import {Paginado} from './Paginado';
@@ -23,7 +23,7 @@ export default function Home (){
     }
 
     
-   console.log(allTemperaments)
+   
 
     useEffect(() => {
         dispatch(getDogs())
@@ -53,6 +53,15 @@ export default function Home (){
         setCurrentPage(1)
         setOrder(e.target.value)
     }
+
+    function handleFilterCreatedOrApi(e){
+        e.preventDefault()
+        dispatch(filterCreatedOrApi(e.target.value))
+        setCurrentPage(1)
+        setOrder(e.target.value)
+    }
+
+    
    
 
 
@@ -83,8 +92,8 @@ export default function Home (){
                     </option>
                 ))}
             </select>
-            <select>
-                <option value='Created>'>Creados</option>
+            <select onChange={e => handleFilterCreatedOrApi(e)}>
+                <option value='createdAt'>Creados</option>
                 <option value='Api'>Existentes</option>
             </select>
            <Paginado

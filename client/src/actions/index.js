@@ -30,13 +30,20 @@ export function filterDogsbyTemperament(payload){
   
 
 export function filterDogsbyWeight(payload){
-    console.log(payload)
+   
     return{
         type:"FILTER_BY_WEIGHT",
         payload
     }
 };
 
+export function filterCreatedOrApi(payload){  
+    console.log(payload)    
+    return{
+            type: "FILTER_CREATED",
+            payload
+        }
+}
 //exporta la funcion getDogs con promesas
 /* export const getDogs = () => {
     return (dispatch) => {
