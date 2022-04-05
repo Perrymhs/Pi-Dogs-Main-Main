@@ -78,7 +78,7 @@ export default function Home (){
         <div>
             
             <select onChange={e => handleFilterForName(e)}>
-            <option value= "asc">Filtrar por nombre</option>
+            <option value= "All">Ordenar por nombre</option>
                 <option value='asc'>Ascendente</option>
                 <option value='desc'>Descendente</option>
             </select>
@@ -112,7 +112,7 @@ export default function Home (){
             return (
                 <div  key={el.id}>
                     <Link to={'/home/' + el.id}>
-                        <Card name={el.name} image={el.image} weightMax={el.weightMax}  temperament={el.temperament} weightMin={el.weightMin}/>
+                        <Card name={el.name} image={el.img ? el.img : el.image } weightMax={el.weightMax}  temperament={el.temperament} weightMin={el.weightMin}/>
                     </Link>
                 </div>
             );

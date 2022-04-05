@@ -25,7 +25,7 @@ function rootReducer (state = initialState, action){
         
         case "FILTER_BY_TEMPERAMENT":
         
-        const allDogsTemp = state.allDogs.filter(e => {if(e.temperament && e.temperament.includes(action.payload))return e})
+        const allDogsTemp = state.allDogs.filter(e => e.temperament && e.temperament.includes(action.payload) ? e: false )/* (e => {if(e.temperament && e.temperament.includes(action.payload))return e}) */
             return {
                 ...state,
                 dogs: allDogsTemp
@@ -53,6 +53,16 @@ function rootReducer (state = initialState, action){
             ...state,
         dogs: allDogsWeight
     }
+        case "POST_DOGS":
+            return {
+                ...state,
+            }
+
+        case "GET_TEMPERAMENTS":
+            return {
+                ...state,
+                temperaments: action.payload
+            }
 
         case "FILTER_BY_NAME":
             let allDogsName;

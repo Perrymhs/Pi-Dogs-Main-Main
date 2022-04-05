@@ -22,14 +22,15 @@ export default function SearchBar(){
         <div>
             <input type= "text"
             placeholder="Buscar..."
-            
             onChange={(e)=> handleInputChange(e)}
+            />
+            <button type="submit"onClick={(e)=> handleSubmit(e)}>Buscar</button>
             
-             />
-             <button type="submit"onClick={(e)=> handleSubmit(e)}>Buscar</button>
-             
-        </div>
-    ) 
-        
+       </div>
+   ) 
+       
+          
+
+            
     
 }
