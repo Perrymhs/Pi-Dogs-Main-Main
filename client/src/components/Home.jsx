@@ -35,11 +35,6 @@ export default function Home (){
 
     }
 
-    function handleFilterName(e){
-        e.preventDefault()
-        dispatch(filterDogsbyName(e.target.value))
-    }   
-
     function handleFilterTemperament(e){
         e.preventDefault()
         dispatch(filterDogsbyTemperament(e.target.value))
@@ -61,7 +56,12 @@ export default function Home (){
         setOrder(e.target.value)
     }
 
-    
+    function handleFilterForName(e){
+        e.preventDefault()
+        dispatch(filterDogsbyName(e.target.value))
+        setCurrentPage(1)
+        setOrder(e.target.value)
+    }
    
 
 
@@ -74,18 +74,19 @@ export default function Home (){
            Volver a cargar todos los perros   
         </button>
         <div>
-            <select onChange={e => handleFilterName}>
-                <option disabled>Nombre</option>
+            
+            <select onChange={e => handleFilterForName(e)}>
+            <option value= "asc">Filtrar por nombre</option>
                 <option value='asc'>Ascendente</option>
                 <option value='desc'>Descendente</option>
             </select>
             <select onChange={e=> handleFilterWeight(e)}>
-                <option value= "Peso">Peso</option>
+                <option value= "weightMax">Filtrar por peso</option>
                 <option value='weightMax'>Peso Maximo</option>
                 <option value='weightMin'>Peso Minimo</option>
             </select>
             <select onChange={e => handleFilterTemperament(e)}>
-                <option value= 'temperament'>Temperamento</option>
+                <option value= 'temperament'>Filtrar por temperamento</option>
                 {allTemperaments.map((element)=> (
                     <option value={element.name}key={element.id}>
                         {element.name}

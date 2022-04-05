@@ -46,6 +46,31 @@ function rootReducer (state = initialState, action){
             ...state,
         dogs: allDogsWeight
     }
+
+        case "FILTER_BY_NAME":
+            let allDogsName;
+            if (action.payload === "asc"){
+                let dogsNameAsc = state.allDogs.sort((a,b) =>{
+                    if(a.name> b.name) return 1;
+                    if(b.name> a.name) return -1;
+                    return 0
+                })
+                allDogsName = dogsNameAsc
+            }
+            if (action.payload ==="desc"){
+                let dogsNameDesc = state.allDogs.sort((a,b)=>{
+                    if(a.name>b.name) return -1;
+                    if(b.name>a.name) return 1;
+                    return 0
+                })
+                allDogsName =dogsNameDesc
+            }
+            return {
+                ...state,
+                dogs: allDogsName
+            }
+
+
         case "FILTER_CREATED":
         console.log(state.allDogs[1].id)
         let filteredDogs;
