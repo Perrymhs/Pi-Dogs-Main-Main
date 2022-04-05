@@ -29,10 +29,10 @@ export function getTemperaments(){
     }
 };
         
-        
+
 export function postDogs(payload){
     return async function(dispatch){
-      const response = await axios.post("http://localhost:3001/dogs",payload)
+      const response = await axios.post("http://localhost:3001/dog",payload)
       console.log(response)
       return response
     }

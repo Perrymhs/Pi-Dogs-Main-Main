@@ -1,21 +1,21 @@
 import React, {useState, useEffect} from "react";
-import { Link, useNavigate} from "react-router-dom";
+import { Link} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { postDogs, getTemperaments } from "../actions";
 
 export default function DogsCreate(){
     const dispatch = useDispatch()
     const temperaments = useSelector((state) => state.temperaments)
-    const navigate = useNavigate()
 
+ 
     const [input,setInput] = useState({
         name:"",
-        HeightMax:"",
-        HeightMin:"",
-        WeightMax:"",
-        WeightMin:"",
+        heightMax:"",
+        heightMin:"",
+        weightMax:"",
+        weightMin:"",
         life_span: "",
-        temperament:[],//lo seteo en un array para poder guardar la cantidad de temperamentos que quiera.
+        temperament:[]//lo seteo en un array para poder guardar la cantidad de temperamentos que quiera.
     })
 
     function handleChange(e){
@@ -30,10 +30,25 @@ export default function DogsCreate(){
         setInput({
             ...input,
             temperament: [...input.temperament, e.target.value]
-        })
-        
+        }) 
+    }
 
-        
+    function handleSubmit(e){
+        e.preventDefault(e)
+        console.log(input)
+        dispatch(postDogs(input))
+        alert ("¡Raza Creada!")
+        setInput({
+            name:"",
+            heightMax:"",
+            heightMin:"",
+            weightMax:"",
+            weightMin:"",
+            life_span: "",
+            image:"",
+            temperament:[],
+        })
+       
     }
     
     useEffect(()=>{
@@ -43,7 +58,7 @@ export default function DogsCreate(){
         <div>
             <Link to = '/home'><button>Volver</button></Link>
             <h1>Crea Tu Propia Raza!</h1>
-            <form>
+            <form onSubmit= {(e)=> handleSubmit(e)}>
                 <div>
                   <label>Nombre:</label>
                   <input
@@ -57,8 +72,8 @@ export default function DogsCreate(){
                     <label>Altura Maxima:</label>
                     <input
                     type="text"
-                    value={input.HeightMax}
-                    name = "HeightMax"
+                    value={input.heightMax}
+                    name = "heightMax"
                     onChange={handleChange}
                     />
                 </div>
@@ -66,8 +81,8 @@ export default function DogsCreate(){
                     <label>Altura Minima:</label>
                     <input
                     type="text"
-                    value={input.HeightMin}
-                    name = "HeightMin"
+                    value={input.heightMin}
+                    name = "heightMin"
                     onChange={handleChange}
                     />
                 </div>
@@ -75,8 +90,8 @@ export default function DogsCreate(){
                     <label>Peso Maximo:</label>
                     <input
                     type="text"
-                    value={input.WeightMax}
-                    name = "WeightMax"
+                    value={input.weightMax}
+                    name = "weightMax"
                     onChange={handleChange}
                     />
                 </div>
@@ -84,8 +99,8 @@ export default function DogsCreate(){
                     <label>Peso Minimo:</label>
                     <input
                     type="text"
-                    value={input.WeightMin}
-                    name = "WeightMin"
+                    value={input.weightMin}
+                    name = "weightMin"
                     onChange={handleChange}
                     />
                 </div>

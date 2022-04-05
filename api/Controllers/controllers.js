@@ -36,15 +36,32 @@ return await Dog.findAll({
         model: Temperament,
         attributes: ['name'],
         through: {attributes:[]} //A travez de la tabla Temperament_Dog   
- 
+        
     }
 })
+
 }
 
 const getAllInfo = async () =>{
-  const infoApi = await getInfoApi();  // va a guardar la info de la api  
-    const infoDb = await getInfoDb(); // va a guardar la info de la db
-    const allInfo = infoApi.concat(infoDb); // va a concatenar la info de la api con la info de la db
+  const infoApi = await getInfoApi();  // va a trae la info de la api  
+    const infoDb = await getInfoDb(); // va a traer la info de la db
+    let aux = await infoDb.map((e) => {
+        return {
+          id: e.id,
+          name: e.name,
+          heightMin: e.heightMin,
+          heightMax: e.heightMax,
+          weightMin: e.weightMin,
+          weightMax: e.weightMax,
+          life_span: e.life_span,
+          image: e.image,
+          temperament: e.temperaments.map((e) => {
+              return e.name;
+            })
+            .join(", "),
+        };
+    })
+    const allInfo = infoApi.concat(aux); // va a concatenar la info de la api con la info de la db
     return allInfo;
 }
 

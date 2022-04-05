@@ -44,7 +44,7 @@ router.get('/dogs/:id', async (req, res) => {
         heightMin,
         weightMax,
         weightMin,
-        temperament,
+        temperament, 
         life_span,
         image,
       } = req.body;
@@ -58,10 +58,11 @@ router.get('/dogs/:id', async (req, res) => {
           life_span,
           image,
         });
-        console.log(temperament);
+       
         let temperamentNewDog = await Temperament.findAll({
           where: { name: temperament },
         });
+       
         NewDog.addTemperament(temperamentNewDog);
         res.send("Tu nueva raza perruna ha sido agregada");
       } catch (error) {

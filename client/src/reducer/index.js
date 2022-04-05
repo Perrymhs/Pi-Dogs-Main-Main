@@ -65,6 +65,8 @@ function rootReducer (state = initialState, action){
             }
 
         case "FILTER_BY_NAME":
+            //pasalo a ternario
+            
             let allDogsName;
             if (action.payload === "asc"){
                 let dogsNameAsc = state.allDogs.sort((a,b) =>{
@@ -92,7 +94,7 @@ function rootReducer (state = initialState, action){
         console.log(state.allDogs[1].id)
         let filteredDogs;
         if (action.payload === "createdAt"){
-            let filterByCreated = state.allDogs.filter(e => e.createdAt)
+            let filterByCreated = state.allDogs.filter(e => e.id.length> 4 )
             filteredDogs = filterByCreated;
         }
         if (action.payload === "Api") {
