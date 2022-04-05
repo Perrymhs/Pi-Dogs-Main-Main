@@ -15,6 +15,13 @@ function rootReducer (state = initialState, action){
                 allDogs: action.payload
             }
         
+        case "GET_NAME_DOGS":
+            return {
+                ...state,
+                dogs: action.payload,
+                allDogs: action.payload,
+               
+            }
         
         case "FILTER_BY_TEMPERAMENT":
         
@@ -91,6 +98,7 @@ function rootReducer (state = initialState, action){
         
     }
 }
+
 
 export default rootReducer;
 

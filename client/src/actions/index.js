@@ -44,6 +44,20 @@ export function filterCreatedOrApi(payload){
             payload
         }
 }
+
+export function getNameDogs(name){
+    return async function(dispatch){
+        try{
+            let json =await axios.get("http://localhost:3001/dogs?name="+ name);
+            return dispatch({
+                type: "GET_NAME_DOGS",
+                payload: json.data  //es que lo que devuelve la ruta cuando le asigno algo por "name"
+            })
+        }catch(error){
+            console.log(error)
+        }
+    }
+}
 //exporta la funcion getDogs con promesas
 /* export const getDogs = () => {
     return (dispatch) => {

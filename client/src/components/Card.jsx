@@ -8,6 +8,7 @@ export default function Card ({image, name , temperament, weightMax, weightMin})
             <p>Temperamento: {temperament}</p>
             <p>Peso Maximo: {weightMax}</p>
             <p>Peso Minimo: {weightMin}</p>
+            
         </div>
     )
 }

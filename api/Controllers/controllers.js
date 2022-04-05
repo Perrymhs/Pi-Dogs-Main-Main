@@ -24,6 +24,7 @@ const saveApi = await apiUrl.data.map((dog)=>{
         life_span: dog.life_span,
         image: dog.image.url,
         temperament: dog.temperament,
+        
     }
 })
 return saveApi;

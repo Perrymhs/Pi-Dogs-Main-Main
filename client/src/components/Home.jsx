@@ -5,6 +5,8 @@ import {getDogs, filterDogsbyName,filterDogsbyTemperament, filterDogsbyWeight, f
 import Card from "./Card";
 import {Link} from 'react-router-dom';
 import {Paginado} from './Paginado';
+import SearchBar from "./SearchBar";
+
 
 export default function Home (){
 
@@ -101,8 +103,10 @@ export default function Home (){
            dogsPerPage = {dogsPerPage}
            allDogs = {allDogs.length}
            paginado = {paginado}/>
-          
+    
+    <SearchBar/> 
         </div>
+        
             {
         currentDogs?.map((el) => {
             return (
@@ -114,6 +118,7 @@ export default function Home (){
             );
         })
     }
+    
         </div>   
             </div>
     )
