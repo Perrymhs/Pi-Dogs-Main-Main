@@ -75,6 +75,21 @@ export function getNameDogs(name){
         }
     }
 }
+
+export function getDetail(id){
+    return async function(dispatch){
+    try{
+        var json = await axios.get("http://localhost:3001/dogs/"+id);
+        return dispatch({
+            type: "GET_DETAIL",
+            payload: json.data
+        })
+    }catch(error){
+        console.log(error)
+
+    }
+}
+}
 //exporta la funcion getDogs con promesas
 /* export const getDogs = () => {
     return (dispatch) => {

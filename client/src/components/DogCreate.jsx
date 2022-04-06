@@ -3,9 +3,27 @@ import { Link} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { postDogs, getTemperaments } from "../actions";
 
+//input es mi estado local
+function validate(input){
+    let errors = {};
+    if(!input.name){
+        errors.name = "*El nombre es requerido";
+    }
+    if(!input.weightMax){
+        errors.weightMax = "*El peso maximo es requerido";
+    }
+    if(!input.weightMin){
+        errors.weightMin = "*El peso minimo es requerido";
+    }
+    
+    return errors;
+
+}
+
 export default function DogsCreate(){
     const dispatch = useDispatch()
     const temperaments = useSelector((state) => state.temperaments)
+    const [errors, setErrors] = useState({})
 
  
     const [input,setInput] = useState({
@@ -23,6 +41,11 @@ export default function DogsCreate(){
             ...input,
             [e.target.name] : e.target.value  //cada vez que la funcion se ejecute a mi estado input ademas de lo que tiene agregale el target value de lo que esta modificando
         })
+        setErrors(validate({
+            ...input,
+            [e.target.name] : e.target.value
+
+        }))
         console.log(input)
     }
     
@@ -31,6 +54,13 @@ export default function DogsCreate(){
             ...input,
             temperament: [...input.temperament, e.target.value]
         }) 
+    }
+
+    function handleDeleted(e){
+        setInput({
+            ...input,
+            temperament: input.temperament.filter(temp => temp !== e)
+        })
     }
 
     function handleSubmit(e){
@@ -67,6 +97,10 @@ export default function DogsCreate(){
                   name = "name"
                     onChange={handleChange}
                   />  
+                  {errors.name && (
+                      <p className="error">{errors.name}</p>
+                  )}
+
                 </div>
                 <div>
                     <label>Altura Maxima:</label>
@@ -94,6 +128,10 @@ export default function DogsCreate(){
                     name = "weightMax"
                     onChange={handleChange}
                     />
+                    {errors.weightMax && (
+                        <p className="error">{errors.weightMax}</p>
+                    )}
+
                 </div>
                 <div>
                     <label>Peso Minimo:</label>
@@ -103,6 +141,9 @@ export default function DogsCreate(){
                     name = "weightMin"
                     onChange={handleChange}
                     />
+                    {errors.weightMin && (
+                        <p className="error">{errors.weightMin}</p>
+                    )}
                 </div>
                 <div>
                     <label>Vida:</label>
@@ -126,14 +167,20 @@ export default function DogsCreate(){
                     {temperaments.map((temp)=>(
                         <option key={temp.id} value={temp.name}>{temp.name}</option>
                     ) )}
+                    
                 </select >
                 <ul><li>{input.temperament.map(e => e +",")}</li></ul>
                 <button type="submit">Crear Raza</button>
-                    
-
-
-
             </form>
+            {input.temperament.map(e=>
+                <div className="divTemp">
+                    <p>{e}</p>
+                    <button className="botonX" onClick={()=> handleDeleted(e)}>X</button>
+                </div>
+                )}        
+
+
+
         </div>
     )
 }

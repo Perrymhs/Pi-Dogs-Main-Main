@@ -3,7 +3,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'; // es un componen
 import Home from '../src/components/Home';
 import LandingPage from '../src/components/LandingPage';
 import DogCreate from "./components/DogCreate";
-// import Detail from './components/Detail';
+import Details from './components/Details';
 
 
 //Siempre envolver el div con el browser router porque si no no funciona porque no se encuentra el componente y no se puede renderizar
@@ -14,7 +14,7 @@ function App() {
     <Route path='/' element={<LandingPage />} />
     <Route path='/home' element={<Home />} />  
     <Route path='/dogs'element={<DogCreate />} />
-    {/* <Route path='/home/:id' element={<Details />} />     */}
+    <Route path='/home/:id' element={<Details />} /> 
     </Routes>
   </BrowserRouter>
   );
