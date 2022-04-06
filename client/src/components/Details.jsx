@@ -25,6 +25,10 @@ export default function Detail(props){
                     <h2>Temperamento: {myDog[0].temperament+ " "}</h2>
                     <h2>Peso Maximo: {myDog[0].weightMax}</h2>
                     <h2>Peso Minimo: {myDog[0].weightMin}</h2>
+                    <h2>Altura Maxima: {myDog[0].heightMax}</h2>
+                    <h2>Altura Minima: {myDog[0].heightMin}</h2>
+                    <h2>Años de Vida: {myDog[0].life_span}</h2>
+                    
 
                 </div> : <p>Loading...</p>
             }

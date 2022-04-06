@@ -28,11 +28,11 @@ export default function DogsCreate(){
  
     const [input,setInput] = useState({
         name:"",
-        heightMax:"",
-        heightMin:"",
-        weightMax:"",
-        weightMin:"",
-        life_span: "",
+        heightMax:0,
+        heightMin:0,
+        weightMax:0,
+        weightMin:0,
+        life_span: 0,
         temperament:[]//lo seteo en un array para poder guardar la cantidad de temperamentos que quiera.
     })
 
@@ -70,11 +70,11 @@ export default function DogsCreate(){
         alert ("¡Raza Creada!")
         setInput({
             name:"",
-            heightMax:"",
-            heightMin:"",
-            weightMax:"",
-            weightMin:"",
-            life_span: "",
+            heightMax:0,
+            heightMin:0,
+            weightMax:0,
+            weightMin:0,
+            life_span: 0,
             image:"",
             temperament:[],
         })
@@ -105,7 +105,7 @@ export default function DogsCreate(){
                 <div>
                     <label>Altura Maxima:</label>
                     <input
-                    type="text"
+                    type="number"
                     value={input.heightMax}
                     name = "heightMax"
                     onChange={handleChange}
@@ -114,7 +114,7 @@ export default function DogsCreate(){
                 <div>
                     <label>Altura Minima:</label>
                     <input
-                    type="text"
+                    type="number"
                     value={input.heightMin}
                     name = "heightMin"
                     onChange={handleChange}
@@ -123,7 +123,7 @@ export default function DogsCreate(){
                 <div>
                     <label>Peso Maximo:</label>
                     <input
-                    type="text"
+                    type="number"
                     value={input.weightMax}
                     name = "weightMax"
                     onChange={handleChange}
@@ -136,7 +136,7 @@ export default function DogsCreate(){
                 <div>
                     <label>Peso Minimo:</label>
                     <input
-                    type="text"
+                    type="number"
                     value={input.weightMin}
                     name = "weightMin"
                     onChange={handleChange}
@@ -146,9 +146,9 @@ export default function DogsCreate(){
                     )}
                 </div>
                 <div>
-                    <label>Vida:</label>
+                    <label>Años de Vida:</label>
                     <input
-                    type="text"
+                    type="number"
                     value={input.life_span}
                     name = "life_span"
                     onChange={handleChange}
