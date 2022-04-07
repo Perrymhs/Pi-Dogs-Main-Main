@@ -12,14 +12,16 @@ body {
 .boton {
   color: #fff ;
   font-size: 15px;
-  font-weight: 30px;
+  font-weight: 15px;
   padding: 0.5em 1.2em;
   background: rgba(49,138,172,0.8);
   border: none;
   border-color: rgba(49,138,172,0.8);
   position: relative;
   cursor: pointer;
-  
+  height: 40px;
+  margin-top: -10px;
+  width: 340px;
   
 }
 .boton:before {
@@ -61,12 +63,8 @@ width: 100%;
 }
 
  
-.title{
-  font-size: 30px;
-background: linear-gradient(#8aedf6, #60a2f5);
-  text-align: center;
-  color: #fff;
-  padding: 1px;
- 
+.menubar{
+    background-color: aqua;
+    
 }
  

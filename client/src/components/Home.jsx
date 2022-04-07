@@ -71,12 +71,12 @@ export default function Home (){
     return (
         <div className={style.stripes}>
            
-        <div className={style.title}><h1>PI De Perros</h1></div>    
+        
+         <div className={style.menubar}>
         <SearchBar/> 
       
          <button><Link to = '/dogs'>Crea Tu Mascota</Link></button>
             
-         <div>
          <button className={style.boton} onClick={e => {handleClick(e)}}>
            Recargar
         </button>

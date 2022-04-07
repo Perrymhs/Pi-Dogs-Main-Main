@@ -13,7 +13,7 @@
     border-radius: 5px 0 0 5px;
     outline: none;
     color: #9DBFAF;
-    margin-top: 130px;
+    margin-top: 57px;
   }
   
   .searchTerm:focus{
@@ -30,7 +30,7 @@
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     font-size: 20px;
-    margin-top: 130px;
+    margin-top: 57px;
   }
   
   /*Resize the wrap to see the search bar change!*/

@@ -26,7 +26,7 @@ export default function Detail(props){
           navigate('/home')
       }else{  
       alert("No se puede eliminar la Raza")
-    }
+      }
     }
 
     const myDog = useSelector((state) => state.detail);
@@ -36,21 +36,21 @@ export default function Detail(props){
                 myDog.length>0 ?
                 <div>
                     <img src={myDog[0].img? myDog[0].img : myDog[0].image} alt="" width="500px" height="700px"/>
-                    <h2>{myDog[0].name}</h2>
+                    <h1>{myDog[0].name}</h1>
                     
-                    <h2>Temperamento: {myDog[0].temperament+ " "}</h2>
-                    <h2>Peso Maximo: {myDog[0].weightMax}</h2>
-                    <h2>Peso Minimo: {myDog[0].weightMin}</h2>
-                    <h2>Altura Maxima: {myDog[0].heightMax}</h2>
-                    <h2>Altura Minima: {myDog[0].heightMin}</h2>
-                    <h2>Años de Vida: {myDog[0].life_span}</h2>
-                    <button onClick={()=>handleDelete()}>BORRAME</button>
-
-                </div> : <p>Loading...</p>
-            }
+                    <h2>🦴Temperamento: {myDog[0].temperament+ " "}</h2>
+                    <h2>🦴Peso Maximo: {myDog[0].weightMax}</h2>
+                    <h2>🦴Peso Minimo: {myDog[0].weightMin}</h2>
+                    <h2>🦴Altura Maxima: {myDog[0].heightMax}</h2>
+                    <h2>🦴Altura Minima: {myDog[0].heightMin}</h2>
+                    <h2>🦴Años de Vida: {myDog[0].life_span}</h2>
+                    <button className={style.boton} onClick={()=>handleDelete()}>❌</button>
             <Link to="/home">
                 <button className={style.btn}>↩</button>
             </Link>
+
+                </div> : <p>Loading...</p>
+            }
             </div>
     )
 }
