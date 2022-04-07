@@ -1,0 +1,77 @@
+/*crea un backgound con una imagen de un Yorkshire*/
+.landingpage {
+  background-image: url("https://a-static.besthdwallpaper.com/paseo-rapido-perro-papel-pintado-2560x1600-13810_7.jpg");
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.btn {
+  position: relative;
+  border: none;
+  transition: 0.4s ease-in;
+  z-index: 1;
+  background-color: transparent;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+    border-radius: 50px;
+    padding: 15px;
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: center;
+    
+    box-shadow: 0px 0px 10px black;
+
+}
+.btn:hover{
+    background: #B7CADB;
+    box-shadow: 0 0 5px #B7CADB, 0 0 25px
+    #B7CADB, 0 0 50px, 0 0 200px lightyellow;
+    border: none;
+}
+
+.textgradient {
+    color: transparent;
+    background-image:repeating-linear-gradient(to left, #FFD700, #7B68EE, #3498db, #90ddb0, #FFD700);    
+    background-clip: text;
+    animation: color 3s linear infinite;
+    background-size: 500%;
+    font-size: 120px;    
+}
+
+@keyframes color {
+    from {
+        background-position: 0% 50%;
+    }
+
+    to {
+        background-position: 100% 50%;
+    }
+}
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

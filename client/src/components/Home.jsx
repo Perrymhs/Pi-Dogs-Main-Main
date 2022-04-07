@@ -6,6 +6,7 @@ import Card from "./Card";
 import {Link} from 'react-router-dom';
 import {Paginado} from './Paginado';
 import SearchBar from "./SearchBar";
+import style from './Home.module.css';
 
 
 export default function Home (){
@@ -68,16 +69,16 @@ export default function Home (){
 
 
     return (
-        <div>
+        <div className={style.stripes}>
          <Link to = '/dogs'>Crea Tu Mascota</Link>   
          <h1>Un monton de perros</h1>
          <div>
-         <button onClick={e => {handleClick(e)}}>
+         <button className={style.boton} onClick={e => {handleClick(e)}}>
            Volver a cargar todos los perros   
         </button>
         <div>
             
-            <select onChange={e => handleFilterForName(e)}>
+            <select className={style.select} onChange={e => handleFilterForName(e)}>
             <option value= "All">Ordenar por nombre</option>
                 <option value='asc'>Ascendente</option>
                 <option value='desc'>Descendente</option>

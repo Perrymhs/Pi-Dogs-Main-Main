@@ -1,0 +1,42 @@
+body {
+    
+    background-image: repeating-linear-gradient(
+        -45deg,
+        #F3E9DD 0px,
+        #F3E9DD 20px,
+        #FDF6EC 20px,
+        #FDF6EC 40px
+        );
+    }
+
+.boton {
+  color: #fff ;
+  font-size: 15px;
+  font-weight: 30px;
+  padding: 0.5em 1.2em;
+  background: #318aac;
+  border: 2px solid;
+  border-color: #318aac;
+  position: relative;
+  cursor: pointer;
+  border-radius: 30px;
+  
+}
+.boton:before {
+  content:"";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 1s ease;
+}
+.boton:hover:before {
+width: 100%;
+}
+
+.select {
+    background-color: #318aac;
+    color: #fff
+}
