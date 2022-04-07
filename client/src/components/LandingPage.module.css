@@ -11,7 +11,9 @@
 }
 
 
-.btn {
+
+
+ .btn {
   position: relative;
   border: none;
   transition: 0.4s ease-in;
@@ -34,15 +36,21 @@
 
 }
 .btn:hover{
-    background: #B7CADB;
+    
     box-shadow: 0 0 5px #B7CADB, 0 0 25px
     #B7CADB, 0 0 50px, 0 0 200px lightyellow;
     border: none;
+    color: transparent;
+    background-image:repeating-linear-gradient(to left, #FFD700, #7B68EE, #3498db, #90ddb0, #9b4dbe, #FFD700 );    
+    background-clip: text;
+    animation: color 3s linear infinite;
+    background-size: 500%;
+    font-size: 18px;    
 }
-
+ 
 .textgradient {
     color: transparent;
-    background-image:repeating-linear-gradient(to left, #FFD700, #7B68EE, #3498db, #90ddb0, #FFD700);    
+    background-image:repeating-linear-gradient(to left, #FFD700, #7B68EE, #3498db, #90ddb0, #9b4dbe, #FFD700 );    
     background-clip: text;
     animation: color 3s linear infinite;
     background-size: 500%;

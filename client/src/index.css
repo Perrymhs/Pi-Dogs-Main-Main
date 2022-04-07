@@ -1,10 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 *{
   user-select: none;
   font-family: 'Pacifico', cursive;
 }
+ */
 
-
+ @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+*{
+  user-select: none;
+  font-family: 'Gloria Hallelujah', cursive;
+}
 body {
   background-size: cover;
   margin: 0;

@@ -70,26 +70,28 @@ export default function Home (){
 
     return (
         <div className={style.stripes}>
-         <Link to = '/dogs'>Crea Tu Mascota</Link>   
+            <SearchBar/> 
          <h1>Un monton de perros</h1>
+         <button><Link to = '/dogs'>Crea Tu Mascota</Link></button>
+            
          <div>
          <button className={style.boton} onClick={e => {handleClick(e)}}>
-           Volver a cargar todos los perros   
+           Recargar
         </button>
         <div>
             
             <select className={style.select} onChange={e => handleFilterForName(e)}>
-            <option value= "All">Ordenar por nombre</option>
+            <option value= "All">Nombre</option>
                 <option value='asc'>Ascendente</option>
                 <option value='desc'>Descendente</option>
             </select>
             <select onChange={e=> handleFilterWeight(e)}>
-                <option value= "weightMax">Filtrar por peso</option>
+                <option value= "weightMax">Peso</option>
                 <option value='weightMax'>Peso Maximo</option>
                 <option value='weightMin'>Peso Minimo</option>
             </select>
             <select onChange={e => handleFilterTemperament(e)}>
-                <option value= 'temperament'>Filtrar por temperamento</option>
+                <option value= 'temperament'>Temperamentos</option>
                 {allTemperaments.map((element)=> (
                     <option value={element.name}key={element.id}>
                         {element.name}
@@ -105,22 +107,23 @@ export default function Home (){
            allDogs = {allDogs.length}
            paginado = {paginado}/>
     
-    <SearchBar/> 
+   
         </div>
-        
+        </div>  
+        <div className={style.container}> 
             {
-        currentDogs?.map((el) => {
-            return (
-                <div  key={el.id}>
+                currentDogs?.map((el) => {
+                    return (
+                <div key={el.id}>
                     <Link to={'/home/' + el.id}>
                         <Card name={el.name} image={el.img ? el.img : el.image } weightMax={el.weightMax}  temperament={el.temperament} weightMin={el.weightMin}/>
                     </Link>
-                </div>
+    </div>
             );
         })
     }
-    
-        </div>   
+    </div>
+         
             </div>
     )
 }
