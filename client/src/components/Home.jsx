@@ -70,8 +70,10 @@ export default function Home (){
 
     return (
         <div className={style.stripes}>
-            <SearchBar/> 
-         <h1>Un monton de perros</h1>
+           
+        <div className={style.title}><h1>PI De Perros</h1></div>    
+        <SearchBar/> 
+      
          <button><Link to = '/dogs'>Crea Tu Mascota</Link></button>
             
          <div>
@@ -80,17 +82,19 @@ export default function Home (){
         </button>
         <div>
             
+      
+            
             <select className={style.select} onChange={e => handleFilterForName(e)}>
             <option value= "All">Nombre</option>
                 <option value='asc'>Ascendente</option>
                 <option value='desc'>Descendente</option>
             </select>
-            <select onChange={e=> handleFilterWeight(e)}>
+            <select className={style.select} onChange={e=> handleFilterWeight(e)}>
                 <option value= "weightMax">Peso</option>
                 <option value='weightMax'>Peso Maximo</option>
                 <option value='weightMin'>Peso Minimo</option>
             </select>
-            <select onChange={e => handleFilterTemperament(e)}>
+            <select className={style.select}  onChange={e => handleFilterTemperament(e)}>
                 <option value= 'temperament'>Temperamentos</option>
                 {allTemperaments.map((element)=> (
                     <option value={element.name}key={element.id}>
@@ -98,16 +102,19 @@ export default function Home (){
                     </option>
                 ))}
             </select>
-            <select onChange={e => handleFilterCreatedOrApi(e)}>
+            <select className={style.select} onChange={e => handleFilterCreatedOrApi(e)}>
+            <option value='createdAt'>Origen</option>
                 <option value='createdAt'>Creados</option>
                 <option value='Api'>Existentes</option>
             </select>
+            
            <Paginado
            dogsPerPage = {dogsPerPage}
            allDogs = {allDogs.length}
            paginado = {paginado}/>
     
    
+      
         </div>
         </div>  
         <div className={style.container}> 

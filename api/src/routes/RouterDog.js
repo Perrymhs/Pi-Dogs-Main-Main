@@ -70,6 +70,19 @@ router.get('/dogs/:id', async (req, res) => {
       }
 })  
 
+router.delete('/deleted/:id', async (req, res) => {
+    let { id } = req.params;
+    try{
+      if(id){
+        await Dog.destroy({
+          where: { id: id }
+        });
+      }
+      return res.send({msg: "Raza deleted"});
+    }catch(error){
+      console.log(error);
+    }
+  });
 
 
 

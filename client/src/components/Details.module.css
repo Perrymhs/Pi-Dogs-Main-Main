@@ -1,0 +1,60 @@
+.cards{
+    width: 1300px;
+    height: 630px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgb(0,0, 0, 0.2);
+    overflow: hidden;
+    margin: 16px;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    transition: all 0.25s;
+    background-color: rgba(49,138,172,0.8);
+    opacity: inherit;
+   
+   
+   
+  } 
+ .cards img{
+     float: left;
+   
+    width: 50%;
+    height: 615px;
+    image-rendering: optimizeQuality;
+    object-fit: cover;
+    border-radius: 8px;
+
+      
+  
+  }
+
+  
+  
+.cards:hover{
+      transform: translateY(-15px);
+      box-shadow: 0 12px 16px rgb(0,0, 0, 0.2);
+  
+  }
+
+  .btn{
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: #60a2f5;
+    animation: pulse 1500ms infinite;
+    border: none;
+  }
+  
+  @keyframes pulse{
+    0% {
+      box-shadow: #60a2f5 0 0 0 0;
+    }
+    75%{
+      box-shadow: #60a2f5 0 0 0 16px;
+    }
+  }
+
+
+/*  .btn{
+
+ } */

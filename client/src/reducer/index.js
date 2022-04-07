@@ -113,7 +113,10 @@ function rootReducer (state = initialState, action){
                 detail: action.payload            
             };
 
-
+        case "DELETE_DOG":
+            return {
+                ...state,
+            }
         
             default:
              return state

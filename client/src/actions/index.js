@@ -90,6 +90,21 @@ export function getDetail(id){
     }
 }
 }
+
+
+export function deletedById(id){
+    return async function(dispatch){
+        try{
+            const json = await axios.delete("http://localhost:3001/deleted/"+id);
+            return dispatch({
+                type: "DELETED_BY_ID",
+                payload: json.data
+            })
+        } catch(err){
+            console.log(err)
+        }
+    }
+}
 //exporta la funcion getDogs con promesas
 /* export const getDogs = () => {
     return (dispatch) => {
