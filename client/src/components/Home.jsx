@@ -85,7 +85,7 @@ export default function Home (){
       
             
             <select className={style.select} onChange={e => handleFilterForName(e)}>
-            <option value= "All">Nombre</option>
+            <option value= "all">Nombre</option>
                 <option value='asc'>Ascendente</option>
                 <option value='desc'>Descendente</option>
             </select>
@@ -103,7 +103,7 @@ export default function Home (){
                 ))}
             </select>
             <select className={style.select} onChange={e => handleFilterCreatedOrApi(e)}>
-            <option value='createdAt'>Origen</option>
+            <option value='all'>Origen</option>
                 <option value='createdAt'>Creados</option>
                 <option value='Api'>Existentes</option>
             </select>

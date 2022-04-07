@@ -25,17 +25,21 @@ function rootReducer (state = initialState, action){
             }
         
         case "FILTER_BY_TEMPERAMENT":
-        
-        const allDogsTemp = state.allDogs.filter(e => e.temperament && e.temperament.includes(action.payload) ? e: false )/* (e => {if(e.temperament && e.temperament.includes(action.payload))return e}) */
+            const allDogsTemp = state.allDogs;
+            const tempFilter = action.payload === "temperament"
+            ? allDogsTemp
+            : allDogsTemp.filter(t => t.temperament?.includes(action.payload))
             return {
                 ...state,
-                dogs: allDogsTemp
+                dogs:tempFilter
             }
+        
+        
         case "FILTER_BY_WEIGHT":
         
         let allDogsWeight;
         if (action.payload === "weightMax"){
-            let dogsMax = state.allDogs.sort((a,b)=> {
+            let dogsMax = state.dogs.sort((a,b)=> {
                 if(a.weightMax> b.weightMax) return -1;
                 if(b.weightMax> a.weightMax) return 1;
                 return 0
@@ -43,7 +47,7 @@ function rootReducer (state = initialState, action){
         allDogsWeight= dogsMax
         } 
         if (action.payload === "weightMin"){
-            let dogsMin = state.allDogs.sort((a,b)=> {
+            let dogsMin = state.dogs.sort((a,b)=> {
                 if(a.weightMax>b.weightMax)return 1;
                 if(b.weightMax>a.weightMax)return -1;
                 return 0
@@ -67,32 +71,21 @@ function rootReducer (state = initialState, action){
 
         case "FILTER_BY_NAME":
             //pasalo a ternario
-            
-            let allDogsName;
-            if (action.payload === "asc"){
-                let dogsNameAsc = state.allDogs.sort((a,b) =>{
-                    if(a.name> b.name) return 1;
-                    if(b.name> a.name) return -1;
-                    return 0
-                })
-                allDogsName = dogsNameAsc
-            }
-            if (action.payload ==="desc"){
-                let dogsNameDesc = state.allDogs.sort((a,b)=>{
-                    if(a.name>b.name) return -1;
-                    if(b.name>a.name) return 1;
-                    return 0
-                })
-                allDogsName =dogsNameDesc
-            }
+            const sortedArr = action.payload === 'all'
+            ? state.dogs 
+            :    action.payload === 'asc'
+            ? state.dogs.sort((a, b) => a.name.localeCompare(b.name)) 
+            : state.dogs.sort((a, b) => b.name.localeCompare(a.name))
             return {
                 ...state,
-                dogs: allDogsName
+                dogs: sortedArr
             }
+
+            
 
 
         case "FILTER_CREATED":
-        console.log(state.allDogs[1].id)
+        
         let filteredDogs;
         if (action.payload === "createdAt"){
             let filterByCreated = state.allDogs.filter(e => e.id.length> 4 )
@@ -102,9 +95,14 @@ function rootReducer (state = initialState, action){
             let aux = state.allDogs.filter((e) => e.id.length < 4);
             filteredDogs = aux;
           }
+
+        if (action.payload === "all" ){
+            let aux = state.allDogs.filter((e)=> e.id.length === e.id.length)
+            filteredDogs= aux
+        }
         console.log(filteredDogs)
         return {...state,
-            dogs: filteredDogs}
+            dogs: filteredDogs} 
 
         
         case "GET_DETAIL":
