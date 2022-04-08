@@ -1,0 +1,52 @@
+.form{
+    width: 95%;
+    height: 600px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgb(0,0, 0, 0.2);
+    overflow: hidden;
+    /* margin: 16px; */
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    background-color: rgba(49,138,172,0.8);
+    margin-left: 32px;
+    margin-top: 25px;
+  
+
+}
+ 
+
+
+
+   
+
+.form form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    
+    
+   
+}
+
+ .form  form input {
+    display: flex;
+    justify-content: center;
+    left: 30%;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 3px;
+    font-weight: bolder;
+    width: 200px;
+    
+} 
+
+.deletedbtn{
+    
+    display: flex;
+    justify-content: space-evenly;
+}

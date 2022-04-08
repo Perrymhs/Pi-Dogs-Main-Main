@@ -23,7 +23,7 @@ export default function SearchBar(){
     }
 
     return(
-        <div className={style.wrap}>
+       
         <div className={style.search}>
             <input type= "text" className={style.searchTerm}
             placeholder="Buscar..."
@@ -32,7 +32,7 @@ export default function SearchBar(){
             <button type="submit" className={style.searchButton} onClick={(e)=> handleSubmit(e)}>🔎</button>
             
        </div>
-       </div>
+      
    ) 
        
           

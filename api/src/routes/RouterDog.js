@@ -92,18 +92,5 @@ router.delete('/deleted/:id', async (req, res) => {
     
 
 
-/* 
-{
-    "name":"Alfredito",
-    "heightMax": 8,
-    "heightMin": 11,
-    "weightMax": 7,
-    "weightMin": 5,
-    "life_span": 12,
-    "image": "https://www.tuexperto.com/wp-content/uploads/2016/09/URL_perro_01.jpg",
-    "createInDb": true,
-    "temperaments": ["Friendly"]
-}
-*/
 
 module.exports = router;

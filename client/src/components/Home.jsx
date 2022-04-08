@@ -73,12 +73,12 @@ export default function Home (){
         <div className={style.stripes}>
            
       
-        <nav>
-            <button><Link to = '/dogs'>Crea Tu Mascota</Link></button>
+        <nav >
+            <button className={style.boton}><Link to = '/dogs' className={style.btnlink} >Crea Tu Mascota</Link></button>
             <div>
                 <SearchBar/>
                 </div>
-            <button onClick={e => {handleClick(e)}}>Recargar</button>
+            <button className={style.boton} onClick={e => {handleClick(e)}}>Recargar</button>
         </nav>
          
          
