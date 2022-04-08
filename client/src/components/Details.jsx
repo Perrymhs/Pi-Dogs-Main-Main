@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, useParams, useNavigate} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import { getDetail, deletedById } from '../actions/index';
+import { getDetail, deletedById, cleanDetail } from '../actions/index';
 import { useEffect } from 'react';
 
 import style from './Details.module.css';
@@ -18,6 +18,11 @@ export default function Detail(props){
         console.log(dog)
     }
     , [dispatch]);
+
+    function handleClean(){
+        dispatch(cleanDetail())
+    }
+
 
     function handleDelete(){
       if(dog[0].id.includes("-")){
@@ -46,10 +51,10 @@ export default function Detail(props){
                     <h2>🦴Años de Vida: {myDog[0].life_span}</h2>
                     <button className={style.boton} onClick={()=>handleDelete()}>❌</button>
             <Link to="/home">
-                <button className={style.btn}>↩</button>
+                <button className={style.btn}onClick={()=>handleClean()}>↩</button>
             </Link>
 
-                </div> : <p>Loading...</p>
+                </div> : <p className={style.loader}></p>
             }
             </div>
     )

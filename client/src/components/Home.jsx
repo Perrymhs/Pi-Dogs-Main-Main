@@ -35,6 +35,7 @@ export default function Home (){
     function handleClick(e){
         e.preventDefault()
         dispatch(getDogs())
+        setCurrentPage(1)
 
     }
 
@@ -71,17 +72,23 @@ export default function Home (){
     return (
         <div className={style.stripes}>
            
-        
-         <div className={style.menubar}>
-        <SearchBar/> 
       
-         <button><Link to = '/dogs'>Crea Tu Mascota</Link></button>
+        <nav>
+            <button><Link to = '/dogs'>Crea Tu Mascota</Link></button>
+            <div>
+                <SearchBar/>
+                </div>
+            <button onClick={e => {handleClick(e)}}>Recargar</button>
+        </nav>
+         
+         
+         <div>
+             
             
-         <button className={style.boton} onClick={e => {handleClick(e)}}>
-           Recargar
-        </button>
-        <div>
             
+             
+            
+       
       
             
             <select className={style.select} onChange={e => handleFilterForName(e)}>
@@ -107,15 +114,13 @@ export default function Home (){
                 <option value='createdAt'>Creados</option>
                 <option value='Api'>Existentes</option>
             </select>
-            
-           <Paginado
-           dogsPerPage = {dogsPerPage}
-           allDogs = {allDogs.length}
-           paginado = {paginado}/>
+           <div className={style.paginado}>
+           <Paginado dogsPerPage = {dogsPerPage} allDogs = {allDogs.length}  paginado = {paginado}/>
+           </div>
+           
+         
     
-   
-      
-        </div>
+    
         </div>  
         <div className={style.container}> 
             {

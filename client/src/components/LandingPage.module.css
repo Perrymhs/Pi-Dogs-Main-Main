@@ -8,6 +8,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
 
 
@@ -46,6 +47,7 @@
     animation: color 3s linear infinite;
     background-size: 500%;
     font-size: 18px;    
+    mix-blend-mode: overlay;
 }
  
 .textgradient {

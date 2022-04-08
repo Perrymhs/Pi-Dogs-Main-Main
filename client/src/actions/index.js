@@ -91,6 +91,12 @@ export function getDetail(id){
 }
 }
 
+export function cleanDetail(){
+    return{ 
+        type: "CLEAN_DETAIL",
+        payload: {}
+    }
+}
 
 export function deletedById(id){
     return async function(dispatch){

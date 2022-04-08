@@ -5,7 +5,7 @@
   }
   
   .searchTerm {
-    width: 100%;
+    width: 325px;
     border: 3px solid #318aac;
     border-right: none;
     padding: 5px;
@@ -13,7 +13,7 @@
     border-radius: 5px 0 0 5px;
     outline: none;
     color: #9DBFAF;
-    margin-top: 57px;
+    
   }
   
   .searchTerm:focus{
@@ -21,7 +21,7 @@
   }
   
   .searchButton {
-    width: 40px;
+    width: 60px;
     height: 36px;
     border: 3px rgba(49,138,172,0.8);
     background: rgba(49,138,172,0.8);
@@ -30,14 +30,8 @@
     border-radius: 0 5px 5px 0;
     cursor: pointer;
     font-size: 20px;
-    margin-top: 57px;
+    
   }
   
-  /*Resize the wrap to see the search bar change!*/
-  .wrap{
-    width: 30%;
-    position: absolute;
-    
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+
+ 

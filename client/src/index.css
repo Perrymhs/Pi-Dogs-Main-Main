@@ -9,6 +9,8 @@
 *{
   user-select: none;
   font-family: 'Gloria Hallelujah', cursive;
+  text-decoration: none;
+  text-align: center;
 }
 body {
   background-size: cover;
