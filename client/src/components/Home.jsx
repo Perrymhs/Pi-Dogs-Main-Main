@@ -74,11 +74,11 @@ export default function Home (){
            
       
         <nav >
-            <button className={style.boton}><Link to = '/dogs' className={style.btnlink} >Crea Tu Mascota</Link></button>
+            <button className={style.boton}><Link to = '/dogs' className={style.btnlink} >Crea Tu Mascota🐾</Link></button>
             <div>
                 <SearchBar/>
                 </div>
-            <button className={style.boton} onClick={e => {handleClick(e)}}>Recargar</button>
+            <button className={style.boton} onClick={e => {handleClick(e)}}>Home🏠</button>
         </nav>
          
          

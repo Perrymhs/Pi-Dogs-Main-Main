@@ -1,1 +1,18 @@
-.pag{}
+.pag{
+     background-color: rgba(49,138,172,0.8);
+     color: #fff;
+    /*hacelos circulares con border radius*/
+    border-radius: 100%;
+    
+    padding: 4px;
+    width: 30px;     
+ }
+     
+
+ .pag:hover{
+        background-color: #fff;
+        color: #000;
+    }
+         
+
+    
