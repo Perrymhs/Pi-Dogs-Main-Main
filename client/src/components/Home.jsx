@@ -21,52 +21,52 @@ export default function Home (){
     const currentDogs = allDogs.slice(indexOfFirstDog, indexOfLastDog);
     const [order, setOrder] = useState("")
 
-    const paginado = (pageNumber) => {
-        setCurrentPage(pageNumber)
+    const paginado = (pageNumber) => { //funcion que me permite cambiar de pagina
+        setCurrentPage(pageNumber)// y que me muestre las cartas correspondientes a la pagina que seleccione el usuario 
     }
 
     
    
 
-    useEffect(() => {
+    useEffect(() => { //cuando se cargue la pagina se ejecuta el dispatch para traer los datos de la api y guardarlos en el store 
         dispatch(getDogs())
     }, [dispatch])
 
-    function handleClick(e){
+    function handleClick(e){ // esta funcion ejecuta el dispatch de getDogs que es el que trae los datos de la api y los guarda en el store
         e.preventDefault()
         dispatch(getDogs())
         setCurrentPage(1)
 
     }
 
-    function handleFilterTemperament(e){
+    function handleFilterTemperament(e){//filtra por temperamento
         e.preventDefault()
         dispatch(filterDogsbyTemperament(e.target.value))
         setCurrentPage(1)
         setOrder(e.target.value)
     }
 
-    function handleFilterWeight(e){
+    function handleFilterWeight(e){ //filtra por peso
         e.preventDefault()
         dispatch(filterDogsbyWeight(e.target.value))
         setCurrentPage(1)
         setOrder(e.target.value)
     }
 
-    function handleFilterCreatedOrApi(e){
-        e.preventDefault()
-        dispatch(filterCreatedOrApi(e.target.value))
+    function handleFilterCreatedOrApi(e){ //filtro por si fue creado o por api 
+        e.preventDefault()//preventDefault para que no se recargue la pagina al hacer click en el boton 
+        dispatch(filterCreatedOrApi(e.target.value))//e.target.value para que me muestre los datos de la api o los creados por el usuario
+        setCurrentPage(1)//para que no se quede en la pagina anterior
+        setOrder(e.target.value) //setOrder es para que no se repita el filtro
+    }
+    
+    function handleFilterForName(e){  //esta funcion filtra por nombre
+        dispatch(filterDogsbyName(e.target.value))//e.target.value para que me muestre los datos de la api o los creados por el usuario
         setCurrentPage(1)
         setOrder(e.target.value)
     }
+  
 
-    function handleFilterForName(e){
-        e.preventDefault()
-        dispatch(filterDogsbyName(e.target.value))
-        setCurrentPage(1)
-        setOrder(e.target.value)
-    }
-   
 
 
     return (
