@@ -32,7 +32,7 @@ export default function Home (){
         dispatch(getDogs())
     }, [dispatch])
 
-    function handleClick(e){ // esta funcion ejecuta el dispatch de getDogs que es el que trae los datos de la api y los guarda en el store
+    function handleClick(e){
         e.preventDefault()
         dispatch(getDogs())
         setCurrentPage(1)
@@ -71,26 +71,14 @@ export default function Home (){
 
     return (
         <div className={style.stripes}>
-           
-      
         <nav >
-            <button className={style.boton}><Link to = '/dogs' className={style.btnlink} >Crea Tu Mascota🐾</Link></button>
+            {/* <button  className={style.boton} ></button> */}<Link to = '/dogs'  >Crea Tu Mascota🐾</Link>
             <div>
                 <SearchBar/>
                 </div>
             <button className={style.boton} onClick={e => {handleClick(e)}}>Home🏠</button>
         </nav>
-         
-         
          <div>
-             
-            
-            
-             
-            
-       
-      
-            
             <select className={style.select} onChange={e => handleFilterForName(e)}>
             <option value= "all">Nombre</option>
                 <option value='asc'>Ascendente</option>
@@ -117,10 +105,6 @@ export default function Home (){
            <div className={style.paginado}>
            <Paginado dogsPerPage = {dogsPerPage} allDogs = {allDogs.length}  paginado = {paginado}/>
            </div>
-           
-         
-    
-    
         </div>  
         <div className={style.container}> 
             {
@@ -139,3 +123,19 @@ export default function Home (){
             </div>
     )
 }
+           
+      
+           
+         
+    
+    
+         
+         
+             
+            
+            
+             
+            
+       
+      
+            

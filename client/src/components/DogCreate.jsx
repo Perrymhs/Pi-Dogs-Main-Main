@@ -97,7 +97,7 @@ export default function DogsCreate(){
     
     useEffect(()=>{
         dispatch(getTemperaments())
-    }, []);
+    }, [dispatch]);
     return (
         <div className={style.form}>
             <Link to = '/home'><button>Volver</button></Link>
