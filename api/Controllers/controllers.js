@@ -5,6 +5,7 @@ const router = require('../src/routes/RouterDog.js');
 
 
 
+
 const getInfoApi =  async () => {
 const apiUrl = await axios.get('https://api.thedogapi.com/v1/breeds');
 const saveApi = await apiUrl.data.map((dog)=>{
@@ -22,7 +23,7 @@ const saveApi = await apiUrl.data.map((dog)=>{
         weightMax: pesoMax ? pesoMax : '',
         weightMin: pesoMin ? pesoMin : '',
         life_span: dog.life_span,
-        image: dog.image.url,
+        image: dog.image.url, //si no tiene imagen, para hacerle una por defecto sería ? dog.image : urldeimagen
         temperament: dog.temperament,
         
     }
@@ -30,9 +31,11 @@ const saveApi = await apiUrl.data.map((dog)=>{
 return saveApi;
 }
 
+
+
 const getInfoDb = async () => {
 return await Dog.findAll({
-    include: {
+    include: { //tengo que incluir los datos del modelo Temperament para que me los traiga, si no nunca los va a traer
         model: Temperament,
         attributes: ['name'],
         through: {attributes:[]} //A travez de la tabla Temperament_Dog   
@@ -54,7 +57,7 @@ const getAllInfo = async () =>{
           weightMin: e.weightMin,
           weightMax: e.weightMax,
           life_span: e.life_span,
-          image: e.image,
+          image: e.image, //si no tiene imagen, para hacerle una por defecto sería ? dog.image : urldeimagen
           temperament: e.temperaments.map((e) => {
               return e.name;
             })

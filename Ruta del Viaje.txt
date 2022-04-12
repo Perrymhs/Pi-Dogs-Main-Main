@@ -1,4 +1,0 @@
-<--------------------------------------------API--------------------------------------->
-Controllers:
-
-getInfoApi L=15 a L=32, esta trayendo los datos (colocar datos) que traigo desde la api [link de la api]
