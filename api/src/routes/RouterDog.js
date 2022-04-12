@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 }); 
  
 router.get('/dogs', async (req, res) => {
-    let {name} = req.query;
+    let {name} = req.query; 
     const totalDogs = await getAllInfo();
     if (name) {
       let dogsName = await totalDogs.filter(e => e.name.toLowerCase().includes(name.toLowerCase()));
@@ -86,7 +86,38 @@ router.delete('/deleted/:id', async (req, res) => {
 
 
 
+  //// router.delete('/deleted/:id', (req,res) => { // Saco async
+//     const { id } = req.params; 
+//     try {
+//         if (id) {
+//             return Dog.destroy({ // saco await. pongo return
+//                 where: { id: id },
+//             }).then(() => { // Devuelvo .then(() => con la resupuesta)
+//                 res.send({msg: 'Raza deleted'}) // y saco el return 
+//             })
+//         }
+//     } catch (error) {
+//         console.log(error);
+//     }
+// })
+  
 
+
+  // const deleteDog = new Promise((resolve, reject) => {
+  //   Dog.destroy({
+  //     where: { id: id }
+  //   })
+  //   .then(() => {
+  //     resolve(res.send({msg: "Raza deleted"}));
+  //   })
+  //   .catch(() => {
+  //     reject(res.send({msg: "No se pudo eliminar la raza"}));
+  //   });
+  // });
+
+ 
+
+  
 
 
     

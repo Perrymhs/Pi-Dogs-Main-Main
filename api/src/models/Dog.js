@@ -11,7 +11,7 @@ module.exports = (sequelize) => {
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false, //permite que este vacio o no.
     },
     heightMax: {
       type: DataTypes.STRING,

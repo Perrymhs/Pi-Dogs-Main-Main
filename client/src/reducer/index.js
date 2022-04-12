@@ -48,8 +48,8 @@ function rootReducer (state = initialState, action){
         } 
         if (action.payload === "weightMin"){
             let dogsMin = state.dogs.sort((a,b)=> {
-                if(a.weightMax>b.weightMax)return 1;
-                if(b.weightMax>a.weightMax)return -1;
+                if(a.weightMin>b.weightMin)return 1;
+                if(b.weightMin>a.weightMin)return -1;
                 return 0
             })
             allDogsWeight=dogsMin
