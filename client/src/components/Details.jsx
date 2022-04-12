@@ -9,7 +9,7 @@ import style from './Details.module.css';
 
 export default function Detail(props){
     console.log(props)
-    const navigate = useNavigate()
+    const navigate = useNavigate() //lo uso en el handledelete para  que me redireccione a la home
     const dog = useSelector(state => state.detail);
     const dispatch = useDispatch();
     const{id} = useParams();

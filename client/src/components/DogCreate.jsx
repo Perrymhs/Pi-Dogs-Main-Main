@@ -38,7 +38,7 @@ export default function DogsCreate(){
     })
 
     function handleChange(e){
-        if(e.target.name === "heightMin"||e.target.name === "heightMax"|| e.target.name=== "weightMax"||e.target.name === "weightMin" ){
+        if(e.target.name === "heightMin"||e.target.name === "heightMax"|| e.target.name=== "weightMax"||e.target.name === "weightMin"||e.target.name === "life_span" ){
             if(e.target.value> 80){
                 e.target.value = 80
                 alert ("No puede ingresar ese valor")
@@ -64,12 +64,28 @@ export default function DogsCreate(){
     }
     
     function handeSelect(e){
-        setInput({
-            ...input,
-            temperament: [...input.temperament, e.target.value]
-        }) 
-    }
-
+        if (input.temperament.length < 5) { //creo para que si tiene menos de 5 temperamentos los pueda ingresar
+            setInput({
+              ...input,
+              temperament: [...input.temperament, e.target.value],
+            });
+            const newArray = input.temperament;
+            const find = newArray.indexOf(e.target.value);
+      
+            if (find >= 0) {
+              newArray.splice(find, 1); //si lo encuentra al temperamento, lo elimina y que borre solo 1
+            } else {
+              newArray.push(e.target.value);
+            }
+            setInput({
+              ...input,
+              temperament: newArray,
+            });
+       
+          } else {
+            alert("The created dog can only have 5 temperaments at max");
+          }
+        }
     function handleDeleted(e){
         setInput({
             ...input,

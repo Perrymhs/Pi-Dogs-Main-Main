@@ -111,7 +111,7 @@ export function deletedById(id){
         }
     }
 }
-//exporta la funcion getDogs con promesas
+
 /* export const getDogs = () => {
     return (dispatch) => {
         axios.get("http:localhost:3001/dogs")

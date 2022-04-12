@@ -79,17 +79,17 @@ export default function Home (){
             <button className={style.boton} onClick={e => {handleClick(e)}}>Home🏠</button>
         </nav>
          <div>
-            <select className={style.select} onChange={e => handleFilterForName(e)}>
-            <option value= "all">Nombre</option>
+            <select value= "disabled" className={style.select} onChange={e => handleFilterForName(e)}>
+            <option value= "">Nombre</option>
                 <option value='asc'>Ascendente</option>
                 <option value='desc'>Descendente</option>
             </select>
-            <select className={style.select} onChange={e=> handleFilterWeight(e)}>
+            <select  value= "disabled" className={style.select} onChange={e=> handleFilterWeight(e)}>
                 <option value= "weightMax">Peso</option>
                 <option value='weightMax'>Peso Maximo</option>
                 <option value='weightMin'>Peso Minimo</option>
             </select>
-            <select className={style.select}  onChange={e => handleFilterTemperament(e)}>
+            <select  value= "disabled" className={style.select}  onChange={e => handleFilterTemperament(e)}>
                 <option value= 'temperament'>Temperamentos</option>
                 {allTemperaments.map((element)=> (
                     <option value={element.name}key={element.id}>

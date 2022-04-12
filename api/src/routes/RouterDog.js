@@ -103,18 +103,6 @@ router.delete('/deleted/:id', async (req, res) => {
   
 
 
-  // const deleteDog = new Promise((resolve, reject) => {
-  //   Dog.destroy({
-  //     where: { id: id }
-  //   })
-  //   .then(() => {
-  //     resolve(res.send({msg: "Raza deleted"}));
-  //   })
-  //   .catch(() => {
-  //     reject(res.send({msg: "No se pudo eliminar la raza"}));
-  //   });
-  // });
-
  
 
   

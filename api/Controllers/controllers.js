@@ -18,10 +18,10 @@ const saveApi = await apiUrl.data.map((dog)=>{
     return {
         id: `${dog.id}`,
         name: dog.name,
-        heightMax: alturaMax ? alturaMax : '',
-        heightMin: alturaMin ? alturaMin : '',
-        weightMax: pesoMax ? pesoMax : '',
-        weightMin: pesoMin ? pesoMin : '',
+        heightMax: alturaMax ? alturaMax : 1,  //le asigno valores por defecto por errores de la Api
+        heightMin: alturaMin ? alturaMin : 1,
+        weightMax: pesoMax ? pesoMax : 1,
+        weightMin: pesoMin ? pesoMin : 1,
         life_span: dog.life_span,
         image: dog.image.url, //si no tiene imagen, para hacerle una por defecto sería ? dog.image : urldeimagen
         temperament: dog.temperament,
