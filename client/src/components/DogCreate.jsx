@@ -173,7 +173,6 @@ export default function DogsCreate(){
                     value={input.life_span}
                     name = "life_span"
                     onChange={handleChange}
-                    required
                     />
                 </div>
                 <div>

@@ -108,11 +108,19 @@ export default function Home (){
         </div>  
         <div className={style.container}> 
             {
-                currentDogs?.map((el) => {
+                currentDogs?.map((dog) => {
                     return (
-                <div key={el.id}>
-                    <Link to={'/home/' + el.id}>
-                        <Card name={el.name} image={el.img ? el.img : el.image } weightMax={el.weightMax}  temperament={el.temperament} weightMin={el.weightMin}/>
+                <div key={dog.id}>
+                    <Link to={'/home/' + dog.id}>
+                        <Card 
+                        name={dog.name} 
+                        image={dog.img ? dog.img : dog.image } 
+                        weightMax={dog.weightMax}  
+                        temperament={dog.temperament} 
+                        weightMin={dog.weightMin}
+                        api={dog.Api}
+                        />
+                        
                     </Link>
     </div>
             );

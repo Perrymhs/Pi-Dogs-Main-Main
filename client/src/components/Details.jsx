@@ -34,26 +34,28 @@ export default function Detail(props){
       }
     }
 
-    const myDog = useSelector((state) => state.detail);
+    let myDog = useSelector((state) => state.detail);
+    myDog  =  myDog.length>0 ? myDog[0] : null  //si el elemento no es nulo lo va a mostrar
     return (
         <div className={style.cards}>
             {
-                myDog.length>0 ?
+                myDog ?
                 <div>
-                    <img src={myDog[0].img? myDog[0].img : myDog[0].image} alt="" width="500px" height="700px"/>
-                    <h1>{myDog[0].name}</h1>
-                    
-                    <h2>🦴Temperamento: {myDog[0].temperament+ " "}</h2>
-                    <h2>🦴Peso Maximo: {myDog[0].weightMax}</h2>
-                    <h2>🦴Peso Minimo: {myDog[0].weightMin}</h2>
-                    <h2>🦴Altura Maxima: {myDog[0].heightMax}</h2>
-                    <h2>🦴Altura Minima: {myDog[0].heightMin}</h2>
-                    <h2>🦴Años de Vida: {myDog[0].life_span}</h2>
-                    <button className={style.boton} onClick={()=>handleDelete()}>❌</button>
+                    <img src={myDog.img? myDog.img : myDog.image} alt="" width="500px" height="700px"/>
+                    <h1>{myDog.name}</h1>
+                    <h2>🦴Temperamento: {myDog.temperament+ " "}</h2>
+                    <h2>🦴Peso Maximo: {myDog.weightMax}</h2>
+                    <h2>🦴Peso Minimo: {myDog.weightMin}</h2>
+                    <h2>🦴Altura Maxima: {myDog.heightMax}</h2>
+                    <h2>🦴Altura Minima: {myDog.heightMin}</h2>
+                    <h2>🦴Años de Vida: {myDog.life_span}</h2>
+                    {
+                    myDog.id.length > 5 &&
+                        <button className={style.boton} onClick={()=>handleDelete()}>❌</button>
+                    }
             <Link to="/home">
                 <button className={style.btn}onClick={()=>handleClean()}>↩</button>
             </Link>
-
                 </div> : <p className={style.loader}></p>
             }
             </div>
